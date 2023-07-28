@@ -1,0 +1,81 @@
+General Function
+
+Decode
+Case
+
+select department_id ,decode(department_id,10,'IT',20,'HR','30','Testing') from employees order by department_id
+
+select department_id,case
+when department_id =10 then 'IT'
+when department_id in(20,30) then 'Testing'
+when department_id between 40 and 60 then 'HR'
+else 'No dept'
+end
+from employees order by department_id
+
+
+Psudo Columns
+
+Distinct/unique
+rownum
+rowid
+user
+uid
+sysdate
+systimestamp
+
+
+select distinct department_id from employees order by department_id
+
+select unique department_id from employees order by department_id
+
+select sysdate from dual
+
+select systimestamp from dual
+
+select user from dual
+
+select uid from dual
+
+select rownum,employee_id,first_name ,salary from employees
+
+select rownum,employee_id,first_name ,salary from employees where rownum <=2
+
+select rownum,employee_id,first_name ,salary from employees where department_id=30
+
+select rowid,employee_id,first_name ,salary from employees
+
+
+
+
+Date function
+
+add_months
+months_between
+next_day
+last_day
+
+select add_months(sysdate,1) from dual
+
+select months_between(sysdate,'26-Jan-19') from dual
+
+select next_day(sysdate,1) from dual
+
+select last_day(sysdate) from dual
+
+
+
+
+Character Conversion function
+
+to_Number
+to_char
+to_date
+
+
+select to_char(sysdate,'dd-mm-yyyy') from dual
+
+select to_char(sysdate,'day-Month-year') from dual
+
+select * from employees where HIRE_DATE =to_date('13-01-1993','dd-mm-yyyy')
+

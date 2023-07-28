@@ -1,0 +1,106 @@
+Aggerate function or Group function
+
+max
+min
+sum
+avg
+count
+
+
+select max(salary),min(salary),sum(salary),avg(salary),count(salary) from employees
+
+select department_id ,count(*)
+from employees where 
+department_id in(50,100) 
+group by department_id order by department_id
+
+
+select department_id ,count(*)
+from employees where 
+department_id in(50,100) 
+group by department_id 
+having count(*)>3
+
+
+
+
+Joins
+
+Fetching records from more than one table
+
+Equi join
+outer join
+   left outer join
+   Right outer join
+   full outer join
+cross join
+self join
+
+Equi join/inner join
+
+Matched records from both tables
+
+select c_name,s_name
+from course inner join students
+on c_id = s_id
+
+select s_name,c_name
+from course,students
+where c_id = s_id
+
+outer join
+
+left outer join
+
+Matched records from both tables unmatched records from left side table
+
+select c_name,s_name
+from course,students
+where c_id = s_id(+)
+
+select c_name,s_name
+from course left outer join students
+on c_id = s_id
+
+Right outer join
+
+Matched records from both tables unmatched records from Right side table
+
+select c_name,s_name
+from course,students
+where c_id(+)= s_id
+
+
+select c_name,s_name
+from course right outer join students
+on c_id = s_id
+
+
+Full outer join
+
+Matched and unmatched records from both tables 
+
+select c_name,s_name
+from course full outer join students
+on c_id = s_id
+
+cross joins
+
+It is an cartation product
+
+select c_name,s_name
+from course,students
+
+
+
+Self joins
+
+Join the table within itself
+
+select  e.Employee_id emp_id,
+	e.first_name emp_name,
+	m.Employee_id mgr_id,
+	m.first_name mgr_name
+from employees e,
+     employees m
+where e.manager_id=m.employee_id

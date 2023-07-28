@@ -1,0 +1,143 @@
+View
+
+It is an virtual table
+It stores the query for repated execution
+makes complex query into simple
+
+Type - simple view
+       complex view
+
+
+Simple View
+
+create or replace view v_dept_50 as
+select * from employees where department_id=50
+
+select * from v_dept_50
+
+
+Complex View
+
+create or replace view view1 as
+select first_name,department_name
+from employees e,
+     departments d
+where e.department_id=d.department_id 
+
+
+
+Materialized view
+
+It ia an snap short of database
+It occupy memory space
+Primary key is must to create materialized view
+we can create index on materialized view
+
+
+Refreshing method
+
+Complete
+Fast
+Force
+
+Create materialized view mv_t3 as
+select * from t3
+
+Complete
+
+begin
+dbms_mview.refresh('mv_t3','C');
+end;
+
+Fast
+
+on commit
+on demand
+
+on commit:
+
+create materialized view log on t3
+
+Create materialized view mv_t3 refresh fast on commit as
+select * from t3
+
+commit;
+
+on demand:
+
+Create materialized view mv_t3 refresh fast on demand as
+select * from t3
+
+
+begin
+dbms_mview.refresh('mv_t3');
+end;
+
+
+Force
+
+
+Create materialized view mv_t3 as
+select * from t3
+
+begin
+dbms_mview.refresh('mv_t3');
+end;
+
+Subqueries
+
+A query with another query is know as Subqueries
+
+Single row Subqueries
+multiple column Subqueries
+inline view
+scalar Subqueries
+corealeted Subqueries
+nested Subqueries
+
+
+Single row Subqueries
+
+select * from employees where salary =(select max(salary) from employees)
+
+
+
+multiple column Subqueries
+
+If condition have more than one column than it multiple column Subqueries
+
+select *from employees where(department_id,salary) in (select department_id,max(salary)from employees group by department_id)
+
+
+
+inline view
+
+If you use select statement in from clause than it is inline view
+
+select max(sal) from (select department_id,max(salary) sal from employees group by department_id)
+
+
+
+Scalar Subqueries
+
+If you use select statement inside select statement then it scalar Subqueries
+
+select first_name,salary,(select avg(salary) from employees)from employees 
+
+
+
+Corealeted Subqueries
+
+Outer query refers inner query value or inner query refers outer query values then it is corealeted Subqueries
+
+select department_name from departments d where department_id  in(select department_id from employees where department_id=d.department_id)
+
+
+
+Nested Subqueries
+
+Using select statement in where clause then it is nested subqueries
+
+select * from employees where salary in (select max(salary) from employees)
+
+

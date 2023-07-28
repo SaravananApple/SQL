@@ -1,0 +1,103 @@
+Data types
+
+Number -38
+char -2000
+varchar2- 4000
+Date
+long 2GB
+CLOB -Character large object 4GB
+BLOB -Binary large object 4Gb
+
+DDL -Data Definition Language(Auto Commit)
+
+Create
+Alter
+Rename
+Drop
+Truncate
+
+DML -Data manipulation language(Manual Commit)
+
+Insert
+Update
+Delete
+Merge
+
+TCL -Transaction Control Language
+
+Commit
+Rollback
+savepoint
+
+
+
+create table sample(s_no number,name varchar2(30),salary number(10))
+
+insert into sample(s_no,name,salary) values(101,'Ram',20000)
+
+insert into sample values(102,'Hari',30000)
+
+insert into sample(s_no,name) values(103,'Anu')
+
+alter table sample add (ph_no number)
+
+update sample set ph_no=123456789 
+
+rename sample to sample1
+
+delete from sample1 where s_no =101
+
+update sample set ph_no=123456789 
+
+rename sample to sample1
+
+delete from sample1 where s_no =101
+
+commit
+
+rollback
+
+create table a1(sno number,sname varchar2(10))
+insert into a1 values(1,'arun')
+insert into a1 values(2,'anbu')
+insert into a1 values(3,'arul')
+insert into a1 values(4,'ajay')
+commit
+rollback
+select * from a1
+
+truncate table a1
+
+drop table a1
+
+
+savepoint
+
+Rollback to some particular point
+
+create table sample1(s_no number);
+
+insert into sample1 values(1);
+
+savepoint sp1;
+
+insert into sample1 values(2);
+
+insert into sample1 values(3);
+
+rollback to sp1;
+
+
+Merge 
+
+   -means insert + Update
+
+merge into x2 using x1
+on(x1.no=x2.no)
+when matched then
+update set x2.fees=x1.fees
+when not matched then
+insert(x2.no,x2.name,x2.fees) values (x1.no,x1.name,x1.fees)
+
+
+

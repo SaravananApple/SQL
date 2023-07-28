@@ -1,0 +1,119 @@
+Character manipulation function
+
+Length
+reverse
+concat
+replace
+translate
+substr
+instr
+pad(lpad and rpad)
+trim(ltrim and r trim)
+
+select first_name,length(first_name),reverse(first_name) from employees
+
+select first_name,last_name,concat(first_name,last_name) from employees
+
+select first_name||last_name from employees
+
+select replace('indian','nd','ab') from dual
+
+select translate('indian','nd','ab') from dual
+
+select substr('indian',1,3) from dual
+
+select substr('indian',-4,3) from dual
+
+select instr('indian','n',3,1) from dual
+
+select lpad('indian',9,'*') from dual
+
+select Rpad('indian',9,'*') from dual
+
+select trim('       indian         ') from dual
+
+select ltrim('       indian         ') from dual
+
+select rtrim('       indian         ') from dual
+
+
+
+
+Number Function
+
+Round
+trunc
+mod
+ceil
+floor
+sign
+
+
+select round(10.4),round(10.6) from dual
+
+select round(10.423,2),round(10.686,2) from dual
+
+select trunc(10.4),trunc(10.6) from dual
+
+select trunc(10.423,2),trunc(10.686,2) from dual
+
+select ceil(10.4),ceil(10.6) from dual
+
+select floor(10.4),floor(10.6) from dual
+
+select mod(10,2),mod(10,3)from dual
+
+select sign(23),sign(-23) from dual
+
+
+
+
+
+
+
+
+
+Null Function
+
+Null is not equal to zero
+Null is not equal to null
+
+NVL
+NVL2
+NULLIF
+COALESCE
+
+
+NVL
+
+It accept 2 argument if first argument is null it returns second argument else first argument
+
+Select commission_pct,nvl(commission_pct,0)from employees
+
+
+NVL2
+
+It accept 3 argument if first 2 argument are same it return first argument else second argument and if first argument 
+is null it return third argument
+
+select nvl2('java','java','oracle') from dual
+
+select nvl2('java','Python','oracle') from dual
+
+select nvl2(null,'java','oracle') from dual
+
+
+Null If
+
+It accept 2 argument if the 2 argument are equal it returns null else first argument
+
+select nullif('oracle','oracle')from dual
+
+select nullif('oracle','java')from dual
+
+
+COALESCE
+
+It return first not null values
+
+select coalesce(null,null,null,'oracle',null) from dual

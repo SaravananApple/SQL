@@ -1,0 +1,97 @@
+Analytical Function
+
+Rank
+Dense_rank
+lead
+lag
+row_number
+
+select first_name,salary,rank()over(order by salary desc)from employees
+
+select first_name,salary,dense_rank()over(order by salary desc)from employees
+
+select first_name,lag(first_name)over(order by first_name) from employees
+
+select first_name,lead(first_name)over(order by first_name) from employees
+
+select employee_id,first_name,salary,row_number()over(order by employee_id) from employees
+
+
+Constraints
+
+To set the rules for the column we can use Constraints
+
+Primary key
+Foreign key
+Not null
+Unique
+Check
+
+Primary key
+
+Primary key is an entity integrity
+it cannot allow duplicate values
+it cannot allow null values
+in one table only one primary key can be used
+
+Foreign key
+
+foreign key is an referential integrity
+it allow duplicate values
+it allow null values
+in one table multiple foreign key can be used
+
+Unique
+
+It is an Unique integrity
+it cannot allow duplicate values
+it allow null values
+
+
+create table e_Course(C_id number primary key,C_name varchar2(30) not null)
+
+insert into e_Course values(105,'EEE')
+
+
+create table c_stu(
+s_id number,
+s_name varchar2(30),
+s_phone number,
+s_email varchar2(50),
+s_cid number,
+Constraints primary primary key(s_id),
+Constraints nn not null(s_name), 
+Constraints ck_id check(length(s_phone)=10),
+Constraints un_id unique(s_email),
+Constraints fk_id foreign key (s_cid) references C_Course(C_id)
+)
+
+
+
+Set operators
+
+
+union
+union all
+minus
+intersect
+
+select * from t1
+union
+select * from t2
+
+
+select * from t1
+union all
+select * from t2
+
+
+select * from t1
+minus
+select * from t2
+
+
+select * from t1
+intersect
+select * from t2
+

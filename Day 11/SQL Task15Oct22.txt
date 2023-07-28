@@ -1,0 +1,32 @@
+A        B
+1        1               Inner Join -15 rows                                        Union - 1  row
+1        1               Left Outer Join - 15 Rows                             Union All - 8 rows 
+1        1              Right Outer Join - 15 Row                             Minus - No data
+1                        Full Outer Join - 15 Row                               Intersect - 1 Row
+1
+
+A       B
+1       1		inner Join - 8 rows			union - 2 rows
+0       0		left Outer Join - 8 rows		union all - 8 rows
+1       1		Right outer Join -8 rows		Minus - no data 
+0		Full Outer Join - 8 rowa		Intersect - 2 rows
+1
+
+A       B 
+1        1  	inner Join - 4rows			union - 4 rows            
+2        3		 left Outer Join - 5 rows		union all - 8 rows
+3        5  	Right outer Join -4rows		Minus - 1ROW 
+3 		Full Outer Join - 5 rowa		Intersect - 3 row
+5
+
+Task
+
+A       B 
+1        1  	inner Join - 				union -            
+2        3		 left Outer Join - 			union all - 
+3        5  	Right outer Join -			Minus - 
+3      null	Full Outer Join - 			Intersect - 
+5
+null
+null
+

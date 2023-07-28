@@ -1,0 +1,94 @@
+SQL Definition:
+
+Basically, SQL stands for Structured Query Language which is basically a language used by databases. This language allows to handle the information using tables and shows a language to query these tables and other objects related (views, functions, procedures, etc.). 
+
+
+Clause
+
+select
+from
+where
+
+Operators
+
+=
+!=,<>
+<
+>
+<=
+>= 
+in
+not in 
+between/not between
+and
+or
+like
+
+
+select * from employees where EMPLOYEE_ID = 100
+
+select * from employees where EMPLOYEE_ID != 100
+
+select * from employees where EMPLOYEE_ID <> 100
+
+select * from employees where EMPLOYEE_ID in (101,102,103)
+
+select * from employees where EMPLOYEE_ID not in (101,102,103)
+
+select * from employees where EMPLOYEE_ID between 101 and 110
+
+select * from employees where EMPLOYEE_ID not between 101 and 110
+
+SELECT * from employees where FIRST_NAME = 'Steven'
+
+SELECT * from employees where FIRST_NAME like '%s'
+
+SELECT * from employees where FIRST_NAME like '%ev%'
+
+SELECT * from employees where FIRST_NAME like '_a%'
+
+select * from employees where employee_id =101 and first_name ='Neena'
+
+select * from employees where employee_id =101 and first_name ='Lex'
+
+select * from employees where employee_id =101 or first_name ='Lex'
+
+select * from employees where employee_id =1001 or first_name ='Lex'
+
+
+
+Sorting data
+
+Ascending
+Descending
+
+select * from employees order by SALARY asc
+
+select * from employees order by SALARY desc
+
+select * from employees order by SALARY 
+
+
+
+Case Manipulation Function
+
+Upper
+lower
+initcap
+
+select upper('india') as Upper from dual
+
+select lower('INDIA') as Upper from dual
+
+select initcap('india') as Upper from dual
+
+SELECT * from employees where lower(FIRST_NAME) = 'lex'
+
+SELECT * from employees where upper(FIRST_NAME) = 'STEVEN'
+
+SELECT * from employees where FIRST_NAME = initcap('lex')
+
+
+
+
+
